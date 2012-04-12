@@ -24,7 +24,7 @@ acd ()
         bookmark="$bookmark_name|`pwd`"
 
         # ensure bookmark doesn't already exist.
-        if [[ -z `grep "$bookmark_name|" $bookmarks_file` ]]; then
+        if [[ -z `grep "^$bookmark_name|" $bookmarks_file` ]]; then
             echo $bookmark >> $bookmarks_file
             echo "bookmark saved: $bookmark_name"
 
@@ -45,14 +45,14 @@ dcd ()
         echo "you didn't specify a bookmark name sir."
 
     else
-        bookmark=`grep "$bookmark_name|" "$bookmarks_file"`
+        bookmark=`grep "^$bookmark_name|" "$bookmarks_file"`
 
         # no match.
         if [[ -z $bookmark ]]; then
             echo "no bookmark by that name sir."
 
         else
-            cat $bookmarks_file | grep -v "$bookmark_name|" > $bookmarks_file
+            cat $bookmarks_file | grep -v "^$bookmark_name|" > $bookmarks_file
             echo "bookmark deleted: $bookmark_name"
         fi
     fi
@@ -71,7 +71,7 @@ lcd()
 {
     bookmark_name=$1
 
-    bookmark=`grep "$bookmark_name|" "$bookmarks_file"`
+    bookmark=`grep "^$bookmark_name|" "$bookmarks_file"`
 
     if [[ -z $bookmark ]]; then
         echo "no bookmark by that name sir."
