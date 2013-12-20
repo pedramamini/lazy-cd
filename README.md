@@ -1,6 +1,6 @@
 # Lazy Change Directory
 
-Simple bash commands for bookmarked navigation of the file system, complete with bash-completion:
+Simple bash commands for bookmarked navigation of the file system, complete with bash-completion. Usage:
 
   * ```acd <mark>``` add a mark.
   * ```pcd``` print list of marks.
