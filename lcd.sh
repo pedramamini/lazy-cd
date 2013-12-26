@@ -52,7 +52,8 @@ dcd ()
             echo "no bookmark by that name sir."
 
         else
-            cat $bookmarks_file | grep -v "^$bookmark_name|" > $bookmarks_file
+            cat $bookmarks_file | grep -v "^$bookmark_name|" > $bookmarks_file.tmp
+            mv $bookmarks_file.tmp $bookmarks_file
             echo "bookmark deleted: $bookmark_name"
         fi
     fi
@@ -88,3 +89,4 @@ _go_complete()
 }
 
 complete -C _go_complete -o default lcd
+
