@@ -89,4 +89,4 @@ _go_complete()
 }
 
 complete -C _go_complete -o default lcd
-
+complete -C _go_complete -o default dcd
